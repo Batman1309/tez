@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Text and Container</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            text-align: center;
+            width: 300px;
+            transition: background-color 0.3s ease;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button.altered {
+            background-color: #28a745;
+        }
+
+        .container.altered {
+            background-color: #ffcccc;
+        }
+
+        p.altered {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <p id="text">hai sir! .</p>
+        <button id="toggleButton">Click me!</button>
+    </div>
+
+    <script>
+        document.getElementById("toggleButton").addEventListener("click", function() {
+            let container = document.getElementById("container");
+            let text = document.getElementById("text");
+            let button = document.getElementById("toggleButton");
+
+            container.classList.toggle("altered");
+            text.classList.toggle("altered");
+            button.classList.toggle("altered");
+
+            if (button.textContent === "Click me!") {
+                button.textContent = "Go back!";
+                text.textContent = "thank you.";
+            } else {
+                button.textContent = "Click me!";
+                text.textContent = "hai sir!";
+            }
+        });
+    </script>
+</body>
+</html>
